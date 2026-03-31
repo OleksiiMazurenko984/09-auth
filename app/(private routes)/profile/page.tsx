@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'NoteHub Profile',
     description: 'User profile page with account details and profile actions.',
-    url: '${process.env.NEXT_APP_URL}/profile',
+    url: `${process.env.NEXT_APP_URL}/profile`,
     images: [
       {
         url: 'https://ac.goit.global/fullstack/react/notehub-og-meta.jpg',

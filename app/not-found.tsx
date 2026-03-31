@@ -5,12 +5,12 @@ export const metadata: Metadata = {
   title: 'NoteHub not found',
   description: 'Sorry this page was not found on site',
   alternates: {
-    canonical: 'https://08-zustand-beta-six-31.vercel.app/',
+    canonical: `${process.env.NEXT_APP_URL}`,
   },
   openGraph: {
     title: 'NoteHub not found',
     description: 'Sorry this page was not found on site',
-    url: 'https://08-zustand-beta-six-31.vercel.app/',
+    url: `${process.env.NEXT_APP_URL}`,
     images: [
       {
         url: 'https://ac.goit.global/fullstack/react/notehub-og-meta.jpg',
