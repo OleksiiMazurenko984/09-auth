@@ -7,13 +7,13 @@ export const metadata: Metadata = {
   description:
     'Create a new note in NoteHub and keep your draft saved while you type',
   alternates: {
-    canonical: 'https://08-zustand-beta-six-31.vercel.app/notes/action/create',
+    canonical: `${process.env.NEXT_APP_URL}/notes/action/create`,
   },
   openGraph: {
     title: 'Create note',
     description:
       'Create a new note in NoteHub and keep your draft saved while you type',
-    url: 'https://08-zustand-beta-six-31.vercel.app/notes/action/create',
+    url: `${process.env.NEXT_APP_URL}/notes/action/create`,
     images: [
       {
         url: 'https://ac.goit.global/fullstack/react/notehub-og-meta.jpg',

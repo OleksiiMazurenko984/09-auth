@@ -10,12 +10,16 @@ export default function AuthNavigation() {
   const router = useRouter();
   const user = useAuthStore(s => s.user);
   const isAuthenticated = useAuthStore(s => s.isAuthenticated);
-  const clearUser = useAuthStore(s => s.clearIsAuthenticated);
+  const clearIsAuthenticated = useAuthStore(s => s.clearIsAuthenticated);
 
   const handleLogout = async () => {
-    await logout();
-    clearUser();
-    router.push('/sign-in');
+    try {
+      await logout();
+      clearIsAuthenticated();
+      router.push('/sign-in');
+    } catch {
+      console.error('Logout failed');
+    }
   };
 
   return (
@@ -33,7 +37,7 @@ export default function AuthNavigation() {
           </li>
 
           <li className={css.navigationItem}>
-            <p className={css.userEmail}>{user?.username ?? user?.email}</p>
+            <p className={css.userEmail}>{user?.email}</p>
             <button onClick={handleLogout} className={css.logoutButton}>
               Logout
             </button>

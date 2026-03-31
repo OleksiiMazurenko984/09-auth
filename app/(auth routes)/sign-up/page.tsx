@@ -10,15 +10,17 @@ import { useAuthStore } from '@/lib/store/authStore';
 export default function SignUp() {
   const router = useRouter();
   const [error, setError] = useState('');
+  const setUser = useAuthStore(s => s.setUser);
 
   const handleSubmit = async (formData: FormData) => {
     const email = formData.get('email') as string;
     const password = formData.get('password') as string;
 
     try {
-      const user = await register({ password, email });
+      const user = await register({ email, password });
 
       if (user) {
+        setUser(user);
         router.push('/profile');
       } else {
         setError('Registration failed');
@@ -61,7 +63,7 @@ export default function SignUp() {
           </button>
         </div>
 
-        {error && <p>{error}</p>}
+        {error && <p className={css.error}>{error}</p>}
       </form>
     </main>
   );

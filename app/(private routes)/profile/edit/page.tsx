@@ -49,6 +49,7 @@ export default function EditProfilePage() {
               type="text"
               className={css.input}
               name="username"
+              defaultValue={user?.username}
             />
           </div>
 

@@ -5,12 +5,12 @@ import { getMe } from '@/lib/api/serverApi';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Profile | NoteHub',
+  title: 'NoteHub Profile',
   description: 'User profile page with account details and profile actions.',
   openGraph: {
-    title: 'Profile | NoteHub',
+    title: 'NoteHub Profile',
     description: 'User profile page with account details and profile actions.',
-    url: 'https://08-zustand-beta-six-31.vercel.app/profile',
+    url: '${process.env.NEXT_APP_URL}/profile',
     images: [
       {
         url: 'https://ac.goit.global/fullstack/react/notehub-og-meta.jpg',
