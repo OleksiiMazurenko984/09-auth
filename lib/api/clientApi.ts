@@ -2,23 +2,18 @@ import { nextServer } from './api';
 import { Note, NoteData } from '@/types/note';
 import { User } from '@/types/user';
 
-export interface UserData {
-  username?: string;
-}
-
 interface NotesResponse {
   notes: Note[];
   totalPages: number;
 }
 
-interface RegisterData {
+interface UserData {
   email: string;
   password: string;
 }
 
-interface LoginData {
-  email: string;
-  password: string;
+interface ChangeUserData {
+  username?: string;
 }
 
 export const fetchNotes = async (
@@ -54,12 +49,12 @@ export const fetchNoteById = async (noteId: Note['id']) => {
   return data;
 };
 
-export const register = async (userData: RegisterData): Promise<User> => {
+export const register = async (userData: UserData): Promise<User> => {
   const { data } = await nextServer.post<User>('/auth/register', userData);
   return data;
 };
 
-export const login = async (userData: LoginData): Promise<User> => {
+export const login = async (userData: UserData): Promise<User> => {
   const { data } = await nextServer.post<User>('/auth/login', userData);
   return data;
 };
@@ -74,7 +69,7 @@ export const getMe = async () => {
   return data;
 };
 
-export const updateMe = async (updateData: UserData): Promise<User> => {
+export const updateMe = async (updateData: ChangeUserData): Promise<User> => {
   const { data } = await nextServer.patch<User>('/users/me', updateData);
   return data;
 };

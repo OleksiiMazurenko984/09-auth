@@ -54,6 +54,7 @@ export default function SignUp() {
             name="password"
             className={css.input}
             required
+            minLength={6}
           />
         </div>
 
