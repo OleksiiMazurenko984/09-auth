@@ -56,13 +56,11 @@ export const fetchNoteById = async (noteId: Note['id']) => {
 
 export const register = async (userData: RegisterData): Promise<User> => {
   const { data } = await nextServer.post<User>('/auth/register', userData);
-  console.log('Registered user:', data);
   return data;
 };
 
 export const login = async (userData: LoginData): Promise<User> => {
   const { data } = await nextServer.post<User>('/auth/login', userData);
-  console.log('Logged in user:', data);
   return data;
 };
 
